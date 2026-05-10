@@ -174,3 +174,29 @@
     color: var(--color-foreground);
   }
 }
+
+/* ── Order Tracking Module extras ─────────────────────────────────── */
+
+/* Stage node pulse glow (used by HorizontalTimeline) */
+@keyframes stage-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.55 0.12 250 / 0.4); }
+  50%       { box-shadow: 0 0 0 8px oklch(0.55 0.12 250 / 0); }
+}
+
+.stage-active-glow {
+  animation: stage-pulse 1.6s ease-in-out infinite;
+}
+
+/* Document card hover lift */
+.doc-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.doc-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Smooth SVG circle transition */
+circle[stroke-dasharray] {
+  transition: stroke-dasharray 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.3s ease;
+}

@@ -82,6 +82,11 @@ export interface Job {
   customerMessage: string;
   stages: StageEntry[];
   documents: JobDocument[];
+  // Delivery / dispatch info
+  dispatchStatus?: string;
+  vehicleNumber?: string;
+  trackingRef?: string;
+  expectedDispatchDate?: string;
 }
 
 interface StoreState {
@@ -151,6 +156,10 @@ const seed: StoreState = {
         { id: "d2", name: "Purchase Order PO-7788.pdf", type: "po", visible: true },
         { id: "d3", name: "Drawing DRW-2026-0045 Rev02.pdf", type: "drawing", visible: true },
       ],
+      dispatchStatus: "Pending",
+      vehicleNumber: "—",
+      trackingRef: "—",
+      expectedDispatchDate: "2026-05-26",
     },
     {
       id: "JOB-10046",
@@ -177,6 +186,10 @@ const seed: StoreState = {
         { id: "d4", name: "Quotation QT-2026-0093.pdf", type: "quotation", visible: true },
         { id: "d5", name: "Drawing DRW-2026-0061 Rev01.pdf", type: "drawing", visible: true },
       ],
+      dispatchStatus: "Scheduled",
+      vehicleNumber: "MH-12-AB-4521",
+      trackingRef: "TRK-2026-0088",
+      expectedDispatchDate: "2026-05-17",
     },
     {
       id: "JOB-10047",
@@ -203,6 +216,10 @@ const seed: StoreState = {
         { id: "d6", name: "Delivery Note DN-2026-0033.pdf", type: "delivery_note", visible: true },
         { id: "d7", name: "Invoice INV-2026-0118.pdf", type: "invoice", visible: true },
       ],
+      dispatchStatus: "Delivered",
+      vehicleNumber: "GJ-01-BC-9981",
+      trackingRef: "TRK-2026-0055",
+      expectedDispatchDate: "2026-05-01",
     },
     {
       id: "JOB-10050",
